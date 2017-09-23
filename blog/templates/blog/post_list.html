@@ -11,8 +11,8 @@
     {% for post in posts %}
       <div>
         <h1><a href="">{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p> 
-        <p>published: {{ post.published_date }}</p>
+        <p>{{ post.text|linebreaksbr }}</p>
+        <p>created: {{ post.created_date }}</p>
       </div>
     {% endfor %}
 
