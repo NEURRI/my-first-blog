@@ -1,21 +1,15 @@
-<html>
-  <head>
-    <title>느리네</title>
-  </head>
-  <body>
-    <div>
-      <h1><a href="">느리네</a></h1>
-    </div>
+{% extends 'blog/base.html' %}
+<!-- 확장태그로 블럭태그가 basehtml까지 연결됨 -->
 
-
-    {% for post in posts %}
-      <div>
-        <h1><a href="">{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+{% block content %}
+  {% for post in posts %}
+    <div class="post">
+      <p>{{ post.pk }}</p>
+      <h1><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h1>
+      <p>{{ post.text|linebreaksbr }}</p>
+      <div class="date">
         <p>created: {{ post.created_date }}</p>
       </div>
-    {% endfor %}
-
-
-  </body>
-</html>
+    </div>
+  {% endfor %}
+{% endblock %}
